@@ -1,0 +1,35 @@
+      <ion-view view-title="Sign-In">
+        <ion-content>
+          <div class="list">
+            <label class="item item-input">
+              <span class="input-label">Username</span>
+              <input type="text" ng-model="user.username">
+            </label>
+            <label class="item item-input">
+              <span class="input-label">Password</span>
+              <input type="password" ng-model="user.password">
+            </label>
+            <label class="item item-input" ng-show="showConfirmPassword">
+              <span class="input-label">Confirm Password</span>
+              <input type="password" ng-model="user.confirmPassword">
+            </label>
+          </div>
+        <button class="item" ng-click="submit(user)">
+  {{buttonText}}
+  </button>
+  <a ng-click="signUpMode()">{{labelText}}</a>
+<!--           <div ng-hide="authData" class="card" ng-click="login()">
+          <button class="item">
+  Log In with Facebook
+  </button> -->
+</div>
+<!--           <div class="padding">
+            <button class="button button-block button-positive" ng-click="signIn(user)">
+              Sign-In
+            </button>
+            <p class="text-center">
+              <a href="#/forgot-password">Forgot password</a>
+            </p>
+          </div> -->
+        </ion-content>
+      </ion-view>

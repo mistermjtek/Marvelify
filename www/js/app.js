@@ -4,49 +4,51 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'ionic.contrib.ui.tinderCards' is found in ionic.tdcards.js
-angular.module('starter', ['ionic', 'ionic.contrib.ui.tinderCards'])
+angular.module('marvelify', ['ionic', 
+  'firebase',
+  'ionic.contrib.ui.tinderCards', 
+  'marvelify.cardController', 
+  'auth-service', 
+  'login-controller'])
 
-.directive('noScroll', function() {
+// .run(function(Auth) {
+//   Auth.$onAuth(function(authData) {
+//   if (authData === null) {
+//     console.log("Not logged in yet");
+//   } else {
+//     console.log("Logged in as", authData.uid);
+//   }
+// });
+// })
 
-  return {
-    restrict: 'A',
-    link: function($scope, $element, $attr) {
+.config(function($stateProvider, $urlRouterProvider) {
 
-      $element.on('touchmove', function(e) {
-        e.preventDefault();
-      });
-    }
-  }
-})
+  $stateProvider
+    .state('login', {
+      url: '/login',
+      templateUrl: 'templates/login.html',
+      controller: 'LoginCtrl'
+    })
+    // .state('tabs', {
+    //   url: '/tab',
+    //   abstract: true,
+    //   templateUrl: 'templates/tabs.html'
+    // })
+    .state('home', {
+      url: '/home',
+      templateUrl: 'templates/home.html',
+      controller: 'CardsCtrl'
+    })
+    // .state('tabs.facts', {
+    //   url: '/facts',
+    //   views: {
+    //     'home-tab': {
+    //       templateUrl: 'templates/facts.html'
+    //     }
+    //   }
+    // })
 
-.controller('CardsCtrl', function($scope, TDCardDelegate) {
-  var cardTypes = [
-    { image: 'max.jpg' },
-    { image: 'ben.png' },
-    { image: 'perry.jpg' },
-  ];
 
-  $scope.cardDestroyed = function(index) {
-    $scope.cards.splice(index, 1);
-  };
+   $urlRouterProvider.otherwise('/login');
 
-  $scope.addCard = function() {
-    var newCard = cardTypes[Math.floor(Math.random() * cardTypes.length)];
-    newCard.id = Math.random();
-    $scope.cards.unshift(angular.extend({}, newCard));
-  }
-  
-  $scope.cards = [];
-  for(var i = 0; i < 3; i++) $scope.addCard();
-})
-
-.controller('CardCtrl', function($scope, TDCardDelegate) {
-  $scope.cardSwipedLeft = function(index) {
-    console.log('LEFT SWIPE');
-    $scope.addCard();
-  };
-  $scope.cardSwipedRight = function(index) {
-    console.log('RIGHT SWIPE');
-    $scope.addCard();
-  };
 });
