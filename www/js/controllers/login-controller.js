@@ -41,7 +41,7 @@ angular.module('login-controller', [])
   });
 }).then(function(authData) {
   console.log("Logged in as:", authData.uid);
-  $state.go('home');
+  $state.go('onboard');
 }).catch(function(error) {
   console.error("Error: ", error);
 });
@@ -68,6 +68,7 @@ angular.module('login-controller', [])
   password: userData.password
 }).then(function(authData) {
   console.log("Logged in as:", authData.uid);
+  $state.go('home');
 }).catch(function(error) {
   console.error("Authentication failed:", error);
 });

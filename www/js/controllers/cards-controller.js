@@ -30,9 +30,4 @@ angular.module('marvelify.cardController', [])
     $scope.addCard();
   };
 
-  $scope.logout= function() {
-    Auth.$unauth();
-    $state.go('login');
-  }
-
 });
