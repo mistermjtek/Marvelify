@@ -25,6 +25,30 @@ td-card {
       color: #e17673;
       font-weight:bold;
 }
+
+.chat-head-photo {
+  border-radius:30px; max-width:300px; transition: 6s all ease; max-height:300px;
+}
+
+#cf {
+    position: relative;
+    height: 300px;
+    width: 300px;
+    margin: 0 auto;
+}
+
+#cf img {
+  position:absolute;
+  left:0;
+  -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+}
+
+#cf img.top.reveal {
+  opacity:0;
+}
 /*
 td-card.card-0 {
   -webkit-transform: translate3d(0, 0px, 0);

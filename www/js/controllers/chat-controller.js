@@ -9,7 +9,12 @@ angular.module('chat-controller', [])
           // if (e.keyCode != 13) return;
           $scope.messages.$add({from: this.name, body: this.message});
           $scope.message = "";
+          // if ($scope.messages > 20) {
+            $scope.reveal = true;
+          // }
    }
+
+
     // $scope.displayName = Users.getDisplayNames($rootScope.userData.uid);
     // //console.log("Chat Controller initialized");
 
