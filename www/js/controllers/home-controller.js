@@ -1,6 +1,6 @@
-angular.module('marvelify.cardController', [])
+angular.module('marvelify.homeController', [])
 
-.controller('CardsCtrl', function($scope, TDCardDelegate, FirebaseAPI, Auth, $state, $http) {
+.controller('HomeCtrl', function($scope, TDCardDelegate, FirebaseAPI, Auth, $state, $http, $firebaseArray, $rootScope) {
   var ref = FirebaseAPI;
   $scope.cards = [{image: ''}];
 
@@ -36,11 +36,23 @@ angular.module('marvelify.cardController', [])
   // for(var i = 0; i < 3; i++) $scope.addCard();
 
   $scope.cardSwipedLeft = function(index) {
+
     console.log('LEFT SWIPE');
     // $scope.addCard();
   };
 
-  $scope.cardSwipedRight = function(index) {
+  $scope.cardSwipedRight = function(card) {
+    var ref = new Firebase('https://marvelify.firebaseio.com/likes/');
+  var sync = $firebaseArray(ref);
+    sync.$add({
+                    likedUserId: card.userId,
+                    gaveTheLike: $rootScope.userData.uid
+                }).then(function(ref) {
+  var id = ref.key();
+  console.log("added record with id " + id);
+  sync.$indexFor(id); // returns location in the array
+
+});
     console.log('RIGHT SWIPE');
     // $scope.addCard();
   };

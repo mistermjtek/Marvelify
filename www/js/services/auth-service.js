@@ -10,6 +10,11 @@ angular.module('auth-service', [])
   return $firebaseArray(ref);
 })
 
+.factory("LikeAPI", function($firebaseArray) {
+  var ref = new Firebase("https//marvelify.firebaseio.com/likes/");
+  return $firebaseArray(ref);
+})
+
 .factory("Items", function($firebaseArray) {
   var itemsRef = new Firebase("https://marvelify.firebaseio.com/items");
   return $firebaseArray(itemsRef);

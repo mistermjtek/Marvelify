@@ -1,6 +1,6 @@
 angular.module('login-controller', [])
 
-.controller('LoginCtrl', function($scope, Auth, $http, $state, $rootScope) {
+.controller('LoginCtrl', function($scope, Auth, $http, $state, $rootScope, $ionicLoading) {
 
   $scope.user = {
     username: '',
@@ -11,6 +11,7 @@ angular.module('login-controller', [])
   $scope.labelText = 'No Account? Sign Up Here!';
 
   var signUp = function(user) {
+    $ionicLoading.show();
     Auth.$createUser({
   email: user.username,
   password: user.password
@@ -27,6 +28,8 @@ angular.module('login-controller', [])
   $state.go('onboard');
 }).catch(function(error) {
   console.error("Error: ", error);
+}).finally(function() {
+  ionicLoading.hide();
 });
   }
 
@@ -51,7 +54,7 @@ angular.module('login-controller', [])
   }
 
   var login = function(userData) {
-
+    $ionicLoading.show();
     Auth.$authWithPassword({
   email: userData.username,
   password: userData.password
@@ -61,6 +64,8 @@ angular.module('login-controller', [])
   $state.go('home');
 }).catch(function(error) {
   console.error("Authentication failed:", error);
+}).finally(function() {
+  $ionicLoading.hide();
 });
     // Auth.$authWithOAuthRedirect("facebook").then(function(authData) {
     //   console.log(authData);
