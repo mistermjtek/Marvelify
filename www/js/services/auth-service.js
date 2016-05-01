@@ -6,6 +6,6 @@ angular.module('auth-service', [])
 })
 
 .factory("FirebaseAPI", function($firebaseAuth) {
-  var ref = new Firebase("https//marvelify.firebaseio.com/users");
+  var ref = new Firebase("https//marvelify.firebaseio.com/users/");
   return ref;
 })

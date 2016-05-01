@@ -6,11 +6,13 @@
 // 'ionic.contrib.ui.tinderCards' is found in ionic.tdcards.js
 angular.module('marvelify', ['ionic', 
   'firebase',
+  'ngCordova',
   'ionic.contrib.ui.tinderCards', 
   'marvelify.cardController', 
   'auth-service', 
   'login-controller',
-  'onboard-controller'])
+  'onboard-controller',
+  'chats-controller'])
 
 .run(function ($ionicPlatform, $rootScope, $location, Auth, $ionicLoading) {
     $ionicPlatform.ready(function () {
@@ -32,6 +34,7 @@ angular.module('marvelify', ['ionic',
         Auth.$onAuth(function (authData) {
             if (authData) {
                 console.log("Logged in as:", authData.uid);
+                $rootScope.userData = authData;
             } else {
                 console.log("Logged out");
                 $ionicLoading.hide();
@@ -55,6 +58,8 @@ angular.module('marvelify', ['ionic',
                 $location.path("/login");
             }
         });
+
+        $rootScope.marvelChars = [1009610, 1009351, 1009220, 1009368, 1009189, 1009664, 1010809, 1009524, 1009268, 1009562]
     });
 })
 

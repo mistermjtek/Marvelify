@@ -1,11 +1,14 @@
 angular.module('marvelify.cardController', [])
 
-.controller('CardsCtrl', function($scope, TDCardDelegate, Auth, $state) {
-  var cardTypes = [
-    { image: 'max.jpg' },
-    { image: 'ben.png' },
-    { image: 'perry.jpg' },
-  ];
+.controller('CardsCtrl', function($scope, TDCardDelegate, FirebaseAPI, Auth, $state, $http) {
+  var ref = FirebaseAPI;
+  var cardTypes = [{image: 'lastcard.jpg'}];
+
+  ref.on("value", function(snapshot) {
+  console.log(snapshot.val());
+}, function (errorObject) {
+  console.log("The read failed: " + errorObject.code);
+});
 
   $scope.cardDestroyed = function(index) {
     $scope.cards.splice(index, 1);

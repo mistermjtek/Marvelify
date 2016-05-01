@@ -1,6 +1,6 @@
 angular.module('login-controller', [])
 
-.controller('LoginCtrl', function($scope, Auth, $http, $state) {
+.controller('LoginCtrl', function($scope, Auth, $http, $state, $rootScope) {
 
   $scope.user = {
     username: '',
@@ -9,24 +9,6 @@ angular.module('login-controller', [])
 
   $scope.buttonText = 'Login';
   $scope.labelText = 'No Account? Sign Up Here!'
-
-  var marvelApiKey = '8840657df7518a8f93eb0ece030f5091';
-
-  var getMarvel = function() {
-    // $http.get('http://gateway.marvel.com/v1/public/characters?apikey=8840657df7518a8f93eb0ece030f5091');
-    $http({
-      method: 'GET',
-      url: 'http://gateway.marvel.com/v1/public/characters?',
-      params: {apikey: marvelApiKey}
-    }).then(function successCallback(response) {
-      console.log(response);
-    }, function errorCallback(response) {
-    // called asynchronously if an error occurs
-    // or server returns response with an error status.
-    });
-  }
-
-  // getMarvel();
 
   var signUp = function(user) {
     Auth.$createUser({
@@ -41,6 +23,7 @@ angular.module('login-controller', [])
   });
 }).then(function(authData) {
   console.log("Logged in as:", authData.uid);
+  $rootScope.userData = authData;
   $state.go('onboard');
 }).catch(function(error) {
   console.error("Error: ", error);
@@ -48,6 +31,12 @@ angular.module('login-controller', [])
   }
 
   $scope.signUpMode = function() {
+
+    $scope.user = {
+    username: '',
+    password: ''
+  }
+
     $scope.buttonText = ($scope.buttonText === 'Login') ? 'Sign Up' : 'Login';
     $scope.showConfirmPassword = ($scope.buttonText === 'Login') ? false : true;
     $scope.labelText = ($scope.buttonText === 'Login') ? 'No Account? Sign Up Here!' : 'Back to Login';
@@ -68,6 +57,7 @@ angular.module('login-controller', [])
   password: userData.password
 }).then(function(authData) {
   console.log("Logged in as:", authData.uid);
+  $rootScope.userData = authData;
   $state.go('home');
 }).catch(function(error) {
   console.error("Authentication failed:", error);
