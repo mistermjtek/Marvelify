@@ -1,16 +1,17 @@
 angular.module('chats-controller', [])
   
-.controller('ChatsCtrl', function ($scope, Rooms, Chats, $state, $ionicHistory) {
+.controller('ChatsCtrl', function ($scope, Rooms, Chats, $state, Users, $ionicHistory) {
     //console.log("Rooms Controller initialized");
-    $scope.rooms = Rooms.all();
 
-    $scope.goHome = function() {
-      $ionicHistory.goBack();
-    }
+    // $scope.rooms = Rooms.all();
 
-    $scope.openChatRoom = function (roomId) {
-        $state.go('chat', {
-            roomId: roomId
-        });
-    }
+    // $scope.goHome = function() {
+    //   $ionicHistory.goBack();
+    // }
+
+    // $scope.openChatRoom = function (roomId) {
+    //     $state.go('chat', {
+    //         roomId: roomId
+    //     });
+    // }
 });

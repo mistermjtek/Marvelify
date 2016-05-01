@@ -63,7 +63,6 @@ angular.module('marvelify.homeController', [])
 
     // $scope.cards = [];
     // for(var i = 0; i < 3; i++) $scope.addCard();
-
     $scope.cardSwipedLeft = function(index) {
 
         console.log('LEFT SWIPE');
@@ -84,6 +83,8 @@ angular.module('marvelify.homeController', [])
         });
         console.log('RIGHT SWIPE');
         // $scope.addCard();
+
+        
     };
 
 });

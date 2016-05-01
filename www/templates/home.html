@@ -11,18 +11,23 @@
         </div>
       </div>
       <br>
-      <div class="row">
-        <div class="col"><img src="img/home/03.png" align="left"></div>
-        <div class="col"><img src="img/home/04.png" align="right"></div>
-      </div>
       <td-cards>
-        <td-card ng-repeat="card in cards" on-destroy="cardDestroyed($index)" on-swipe-left="cardSwipedLeft($index)" on-swipe-right="cardSwipedRight(card)" on-partial-swipe="cardPartialSwipe(amt)" class="card-{{$index}}">
+        <td-card ng-repeat="card in cards" on-destroy="cardDestroyed($index)" on-swipe-left="cardSwipedLeft($index)" on-swipe-right="cardSwipedRight(card)" on-partial-swipe="cardPartialSwipe(amt)" class="card-{{$index}}" ng-hide='$index > 10'>
           <div class="image">
             <div class="no-text">NOPE</div>
             <img ng-src="{{card.image}}">
             <div class="yes-text">LIKE</div>
           </div>
+          <div class="description text-center" ng-hide="$index !== 0 || !card.fullName">
+          <h1>{{card.fullName}}</h1>
+          <h1>{{card.gender}} / {{card.age}}</h1>
+          </div>
         </td-card>
       </td-cards>
+      <div class="row" style="position: absolute;
+    bottom: -82vh;">
+        <div class="col"><img src="img/home/03.png" align="left"></div>
+        <div class="col"><img src="img/home/04.png" align="right"></div>
+      </div>
 </ion-pane>
 </ion-content>
