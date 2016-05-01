@@ -7720,9 +7720,10 @@ img {
 }
 
 #title {
-  margin-top: 150px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 100px;
-  display: block;
+    margin-top: 180px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+    display: block;
+    width: 50%;
 }
