@@ -1,6 +1,6 @@
 angular.module('chat-controller', [])
 
-.controller('ChatCtrl', function($scope, $ionicModal, Items, Chats, Users, $state, $rootScope, $firebaseArray) {
+.controller('ChatCtrl', function($scope, $ionicModal, Items, Chats, Users, $state, $rootScope, $firebaseArray, $ionicHistory) {
   var ref = new Firebase("https://alpha-db.firebaseio.com/messages");
   
   $scope.messages = $firebaseArray(ref);
@@ -12,6 +12,10 @@ angular.module('chat-controller', [])
           // if ($scope.messages > 20) {
             $scope.reveal = true;
           // }
+   }
+
+   $scope.goHome = function() {
+    $ionicHistory.goBack();
    }
 
 
