@@ -1,23 +1,41 @@
 <ion-view view-title="User Onboarding">
-        <ion-content>
-          <div class="list">
-          <button class="button button-icon icon ion-camera" ng-click="upload()"></button>
-            <label class="item item-input">
-              <span class="input-label">Full Name</span>
-              <input type="text" ng-model="user.username">
-            </label>
-            <label class="item item-input">
-              <span class="input-label">Age</span>
-              <input type="number" ng-model="user.age">
-            </label>
-            <label class="item item-input">
-              <span class="input-label">Gender</span>
-              <select ng-model="user.gender">
-                <option>Male</option>
-                <option>Female</option>
-              </select>
-            </label>
-            <button class="button" ng-click="submitForm(user)">Submit</button>
-          </div>
-        </ion-content>
-      </ion-view>
+    <ion-content>
+    <img src="../img/profile/03.png" height="45" width="180" style="PADDING-LEFT: 20px; PADDING-TOP: 20px;"><br>
+    <div align="center">
+	<br>
+	<br>
+	<br><br>
+	<img src="../img/profile/00.png" height="25" width="300">
+	<br>
+	<br><br>
+          <button class="button button-clear button-positive" ng-click="upload()">
+		<img src="../img/profile/02.png" height="270" width="270"></button>
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    	<div align="center" >
+<table>
+<tr>
+<td width="30%" align="left"><img src="../img/profile/11.png" height="20" width="70"></td>
+<td align="left"><input type="text" ng-model="user.username" size="30"></td>
+</tr>
+<tr>
+<td align="left"><img src="../img/profile/06.png" height="20" width="50"></td>
+<td align="left"><input type="number" ng-model="user.age"></td>
+</tr>
+<tr>
+<td align="left"><img src="../img/profile/04.png" height="20" width="110" style="PADDING-RIGHT: 20px;"></td>
+<td><ion-list>
+<ion-radio ng-model="user.gender" ng-value="'M'">Male</ion-radio>
+<ion-radio ng-model="user.gender" ng-value="'F'">Female</ion-radio>
+</td>
+<td width="10%"></td>
+</ion-list></td>
+</tr>
+</table>
+    	</div>
+    <div align="center">
+	<br><br>
+	<button class="button button-clear button-positive" ng-click="submitForm(user)">
+			<img src="../img/profile/10.png" height="50" width="50"></button>
+    </div>
+    </ion-content>
+</ion-view>
