@@ -6,6 +6,7 @@ angular.module('onboard-controller', [])
 		fullName: '',
 		gender: '',
 		age: 0,
+		description: '',
 		image: null
 	}
 
@@ -20,6 +21,7 @@ angular.module('onboard-controller', [])
                     fullName: user.fullName,
                     gender: user.gender,
                     age: user.age,
+                    description: user.description,
                     image: user.image
                 }).then(function(ref) {
   var id = ref.key();

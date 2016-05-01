@@ -2,6 +2,7 @@
         <ion-content>
           <div class="list">
           <button class="button button-icon icon ion-camera" ng-click="upload()"></button>
+          <img ng-src="data:image/jpeg;base64,{{user.image}}" on-error-src="http://placehold.it/200x200">
             <label class="item item-input">
               <span class="input-label">Full Name</span>
               <input type="text" ng-model="user.fullName">
@@ -16,6 +17,10 @@
                 <option>Male</option>
                 <option>Female</option>
               </select>
+            </label>
+            <label class="item item-input">
+              <span class="input-label">About Yourself</span>
+              <textarea ng-model="user.description"></textarea>
             </label>
             <button class="button" ng-click="submitForm(user)">Submit</button>
           </div>
