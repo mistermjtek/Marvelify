@@ -1,9 +1,39 @@
-   <ion-view view-title="Matches">
+
+<!--    <ion-view view-title="Matches">
     <ion-content>
       <ion-list>
-        <ion-item ng-repeat="item in items">
-          {{item.name}}
+        <ion-item ng-repeat="room in rooms" type="item-text-wrap" ng-click="openChatRoom(room.id)">
+          {{room.name}}
         </ion-item>
       </ion-list>
     </ion-content>
-    </ion-view>
+    </ion-view> -->
+<ion-view view-title="Matches">
+  <ion-content>
+    <div class="row" style="margin-bottom: 30px;">
+  	<div class="col col-10"><a ng-click="backHome()">
+    	<img src="img/chat/00.png" align="left" style="min-width: 30px; margin: 3vw;"></a></div>
+  	<div class="col col-80"><img src="img/chat/01.png" align="center" 
+		style="margin-top: 3vw; margin-left: 20vw; width: 60%; height: 100%;"></div>
+  	<div class="col col-10"></div>
+    </div>
+    <div class="row">
+      <div class="col" style="background-color:white; margin-left: 4vw; margin-right: 4vw;">
+
+        <a ng-repeat="item in items" 
+           href="#/{{item.id}}"
+           class="item item-thumbnail-left">
+
+          <img ng-src="{{ item.image }}">
+          <h2 style="margin-top:10px; font-weight: bold;
+		color: #E97E7E; font-size: 150%;">{{ item.name }}</h2>
+          <h4>{{ item.gender}}</h4>
+	  <h4>{{ item.age}}</h4>
+        </a>
+      </div>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>
+>>>>>>> 7cb5eb4f5e44b14c445d4c0d9971ab6210daf8bb

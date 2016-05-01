@@ -9,10 +9,12 @@ angular.module('marvelify', ['ionic',
   'ngCordova',
   'ionic.contrib.ui.tinderCards', 
   'marvelify.homeController', 
-  'auth-service', 
+  'auth-service',
+  'mychat.services', 
   'login-controller',
   'onboard-controller',
   'chats-controller',
+  'chat-controller',
   'app-directives'])
 
 .run(function ($ionicPlatform, $rootScope, $location, Auth, $ionicLoading) {
