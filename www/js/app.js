@@ -12,7 +12,8 @@ angular.module('marvelify', ['ionic',
   'auth-service', 
   'login-controller',
   'onboard-controller',
-  'chats-controller'])
+  'chats-controller',
+  'app-directives'])
 
 .run(function ($ionicPlatform, $rootScope, $location, Auth, $ionicLoading) {
     $ionicPlatform.ready(function () {

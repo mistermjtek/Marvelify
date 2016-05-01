@@ -2,18 +2,16 @@ angular.module('marvelify.cardController', [])
 
 .controller('CardsCtrl', function($scope, TDCardDelegate, FirebaseAPI, Auth, $state, $http) {
   var ref = FirebaseAPI;
-  var cardTypes = [{image: 'lastcard.jpg'}];
+  $scope.cards = [{image: ''}];
 
   $http.get('https://marvelify.firebaseio.com/users.json').then(function(response) {
     var array = [];
          console.log(response.data);
     angular.forEach(response.data, function(element) {
-      angular.forEach(element, function(el) {
-        cardTypes.push({image: el.marvelImage});
-      })
+        $scope.cards.push({image: element.marvelImage, userId: element.userId});
     // cardTypes.push({image: element[Object.keys(element)[0]].marvelImage});
-
   });
+    console.log($scope.cards);
  }, function(response) {
 });
 
@@ -28,23 +26,23 @@ angular.module('marvelify.cardController', [])
     $scope.cards.splice(index, 1);
   };
 
-  $scope.addCard = function() {
-    var newCard = cardTypes[Math.floor(Math.random() * cardTypes.length)];
-    newCard.id = Math.random();
-    $scope.cards.unshift(angular.extend({}, newCard));
-  }
+  // $scope.addCard = function() {
+  //   var newCard = cardTypes[Math.floor(Math.random() * cardTypes.length)];
+  //   newCard.id = Math.random();
+  //   $scope.cards.unshift(angular.extend({}, newCard));
+  // }
   
-  $scope.cards = [];
-  for(var i = 0; i < 3; i++) $scope.addCard();
+  // $scope.cards = [];
+  // for(var i = 0; i < 3; i++) $scope.addCard();
 
   $scope.cardSwipedLeft = function(index) {
     console.log('LEFT SWIPE');
-    $scope.addCard();
+    // $scope.addCard();
   };
 
   $scope.cardSwipedRight = function(index) {
     console.log('RIGHT SWIPE');
-    $scope.addCard();
+    // $scope.addCard();
   };
 
 });
