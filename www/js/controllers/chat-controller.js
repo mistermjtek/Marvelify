@@ -1,24 +1,31 @@
 angular.module('chat-controller', [])
 
-.controller('ChatCtrl', function($scope, $ionicModal, Items) {
+.controller('ChatCtrl', function($scope, $ionicModal, Items, Chats, $state) {
   
-  $scope.contacts = [
-    { name: 'Gordon Freeman' },
-    { name: 'Barney Calhoun' },
-    { name: 'Lamarr the Headcrab' },
-  ];
+    //console.log("Chat Controller initialized");
 
+    $scope.IM = {
+        textMessage: ""
+    };
 
-  $scope.items = Items;
-  $scope.addItem = function() {
-    var name = prompt("What do you need to buy?");
-    if (name) {
-      $scope.items.$add({
-        "name": name
-      });
+    Chats.selectRoom($state.params.roomId);
+
+    var roomName = Chats.getSelectedRoomName();
+
+    // Fetching Chat Records only if a Room is Selected
+    if (roomName) {
+        $scope.roomName = " - " + roomName;
+        $scope.chats = Chats.all();
     }
-  };
 
-  $scope.addItem();
+    $scope.sendMessage = function (msg) {
+        console.log(msg);
+        Chats.send($scope.displayName, msg);
+        $scope.IM.textMessage = "";
+    }
+
+    $scope.remove = function (chat) {
+        Chats.remove(chat);
+    }
 
 });

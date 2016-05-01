@@ -1,6 +1,6 @@
 angular.module('marvelify.homeController', [])
 
-.controller('HomeCtrl', function($scope, TDCardDelegate, FirebaseAPI, Auth, $state, $http, $firebaseArray, $rootScope) {
+.controller('HomeCtrl', function($scope, TDCardDelegate, FirebaseAPI, Auth, $state, $http, $firebaseArray, $rootScope, $ionicActionSheet) {
   var ref = FirebaseAPI;
   $scope.cards = [{image: ''}];
 
@@ -21,6 +21,31 @@ angular.module('marvelify.homeController', [])
 // }, function (errorObject) {
 //   console.log("The read failed: " + errorObject.code);
 // });
+
+ $scope.openSettings = function() {
+
+   // Show the action sheet
+   var hideSheet = $ionicActionSheet.show({
+     buttons: [
+       { text: 'Change Profile' }
+     ],
+     destructiveText: 'Logout',
+     titleText: 'Settings',
+     cancelText: 'Cancel',
+     destructiveButtonClicked: function() {
+          $rootScope.logout();
+          return true;
+        },
+     buttonClicked: function(index) {
+      console.log('index:', index);
+      if (index === 0) {
+        $state.go('onboard');
+        return true;
+      }
+     }
+   });
+
+ };
 
   $scope.cardDestroyed = function(index) {
     $scope.cards.splice(index, 1);

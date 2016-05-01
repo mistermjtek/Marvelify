@@ -1,24 +1,12 @@
 angular.module('chats-controller', [])
-
-.controller('ChatsCtrl', function($scope, $ionicModal, Items) {
   
-  $scope.contacts = [
-    { name: 'Gordon Freeman' },
-    { name: 'Barney Calhoun' },
-    { name: 'Lamarr the Headcrab' },
-  ];
+.controller('ChatsCtrl', function ($scope, Rooms, Chats, $state) {
+    //console.log("Rooms Controller initialized");
+    $scope.rooms = Rooms.all();
 
-
-  $scope.items = Items;
-  $scope.addItem = function() {
-    var name = prompt("What do you need to buy?");
-    if (name) {
-      $scope.items.$add({
-        "name": name
-      });
+    $scope.openChatRoom = function (roomId) {
+        $state.go('chat', {
+            roomId: roomId
+        });
     }
-  };
-
-  $scope.addItem();
-
 });
