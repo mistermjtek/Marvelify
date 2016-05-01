@@ -8,7 +8,8 @@ angular.module('onboard-controller', [])
 		age: 0,
 		description: '',
 		image: null,
-		marvelImage: ''
+		marvelImage: '',
+		userId: $rootScope.userData.uid
 	}
 
 	$ionicHistory.clearHistory();
@@ -37,7 +38,7 @@ angular.module('onboard-controller', [])
 	$scope.submitForm = function(user) {
 	  getMarvel();
 
-	var ref = new Firebase('https://marvelify.firebaseio.com/users/'+ $rootScope.userData.uid);
+	var ref = new Firebase('https://marvelify.firebaseio.com/users');
 	var sync = $firebaseArray(ref);
 		console.log(user);
 		sync.$add({
@@ -46,7 +47,8 @@ angular.module('onboard-controller', [])
                     age: user.age,
                     description: user.description,
                     image: user.image,
-                    marvelImage: user.marvelImage
+                    marvelImage: user.marvelImage,
+                    userId: user.userId
                 }).then(function(ref) {
   var id = ref.key();
   console.log("added record with id " + id);

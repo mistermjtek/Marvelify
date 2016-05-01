@@ -2,38 +2,38 @@
     <ion-content>
     <img src="../img/profile/03.png" height="45" width="180" style="PADDING-LEFT: 20px; PADDING-TOP: 20px;"><br>
     <div align="center">
-	<br>
-	<br>
-	<br><br>
-	<img src="../img/profile/00.png" height="25" width="300">
-	<br>
-	<br><br>
-          <button class="button button-clear button-positive" ng-click="upload()">
-		<img src="../img/profile/02.png" height="270" width="270"></button>
-		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-	<table>
-	    <tr>
-		<td width="30%" align="left"><img src="../img/profile/11.png" height="20" width="70"></td>
-		<td align="left"><input type="text" ng-model="user.username" size="30"></td>
-	    </tr>
-	    <tr>
-		<td align="left"><img src="../img/profile/06.png" height="20" width="50"></td>
-		<td align="left"><input type="number" ng-model="user.age"></td>
-	    </tr>
-	    <tr>
-		<td align="left"><img src="../img/profile/04.png" height="20" width="110" style="PADDING-RIGHT: 20px;">
-		</td>
-		<td><ion-list>
-		    <ion-radio ng-model="user.gender" ng-value="'M'">Male</ion-radio>
-		    <ion-radio ng-model="user.gender" ng-value="'F'">Female</ion-radio>
-		</td>
-		<td width="10%"></td>
-		</ion-list></td>
-	    </tr>
-	</table>
-	<br><br>
-	<button class="button button-clear button-positive" ng-click="submitForm(user)">
-			<img src="../img/profile/10.png" height="50" width="50"></button>
+	<img class="topMargin" src="../img/profile/00.png" height="25" width="300">
+
+	<a style="display:block; margin-bottom:60px" ng-click="upload()"><img class="topMargin" src="../img/profile/02.png" height="270" width="270"></a>
+    </div>
+
+
+    <div align="center">
+
+<div class="row">
+  <div class="col"><img src="../img/profile/11.png" height="25" width="80" align="right" style="
+    min-height: 30px; min-width: 70px;"></div>
+  <div class="col col-50" align="center"><input type="text" ng-model="user.username" size="30"></div>
+  <div class="col"></div>
+</div>
+<div class="row">
+  <div class="col"><img src="../img/profile/06.png" height="30" width="62" align="right"></div>
+  <div class="col col-50" align="center"><input type="number" ng-model="user.age"></div>
+  <div class="col"></div>
+</div>
+<div class="row">
+  <div class="col"><img src="../img/profile/04.png" height="30" width="111" align="right" style="
+    min-width: 100px; min-height: 25px;"></div>
+  <div class="col col-50"><ion-list align="left">
+	<ion-radio ng-model="user.gender" ng-value="'M'">Male</ion-radio>
+	<ion-radio ng-model="user.gender" ng-value="'F'">Female</ion-radio></div>
+  <div class="col"></div>
+</div>
+	
+    </div>
+    <div align="center">
+	<a style="display:block;" ng-click="submitForm(user)">
+	<img class="topMargin" src="../img/profile/10.png" height="50" width="50"></a>
     </div>
     </ion-content>
 </ion-view>

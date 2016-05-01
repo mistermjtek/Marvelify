@@ -12,7 +12,8 @@ angular.module('marvelify', ['ionic',
   'auth-service', 
   'login-controller',
   'onboard-controller',
-  'chats-controller'])
+  'chats-controller',
+  'app-directives'])
 
 .run(function ($ionicPlatform, $rootScope, $location, Auth, $ionicLoading) {
     $ionicPlatform.ready(function () {
@@ -59,7 +60,7 @@ angular.module('marvelify', ['ionic',
             }
         });
 
-        $rootScope.marvelChars = [1009610, 1009351, 1009220, 1009368, 1009189, 1009664, 1010809, 1009524, 1009268, 1009562]
+        $rootScope.marvelChars = [1009610, 1009351, 1009220, 1009368, 1009189, 1009664, 1009338, 1009524, 1009268, 1009562];
     });
 })
 
@@ -115,14 +116,11 @@ angular.module('marvelify', ['ionic',
       }]
         }
     })
-    // .state('tabs.facts', {
-    //   url: '/facts',
-    //   views: {
-    //     'home-tab': {
-    //       templateUrl: 'templates/facts.html'
-    //     }
-    //   }
-    // })
+    .state('chats', {
+      url: '/chats',
+          templateUrl: 'templates/chats.html',
+          controller: 'ChatsCtrl'
+    })
 
 
    $urlRouterProvider.otherwise('/login');

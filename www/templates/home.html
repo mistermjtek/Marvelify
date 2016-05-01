@@ -1,10 +1,19 @@
-    <ion-pane>
-      <ion-header-bar class="bar-default">
-        <h1 class="title">{{userData.facebook.displayName}}</h1>
-      </ion-header-bar>
+<ion-pane>
+<ion-view view-title="User Onboarding">
+    <ion-content>
+<div class="row">
+  <div class="col"><img src="../img/home/01.png" align="left"></div>
+  <div class="col col-50"><img src="../img/home/00.png" align="center"></div>
+  <div class="col"><img src="../img/home/02.png" align="right"></div>
+</div>
+<br>
+<div class="row">
+  <div class="col"><img src="../img/home/03.png" align="left"></div>
+  <div class="col"><img src="../img/home/04.png" align="right"></div>
+</div>
 
       <td-cards>
-        <td-card ng-repeat="card in cards" on-destroy="cardDestroyed($index)" on-swipe-left="cardSwipedLeft($index)" on-swipe-right="cardSwipedRight($index)" on-partial-swipe="cardPartialSwipe(amt)" class="card-{{$index}}">
+        <td-card ng-repeat="card in cards" on-destroy="cardDestroyed($index)" on-swipe-left="cardSwipedLeft($index)" on-swipe-right="cardSwipedRight($index)" on-partial-swipe="cardPartialSwipe(amt)" class="card-{{$index}}" >
           <div class="image">
             <div class="no-text">NOPE</div>
             <img ng-src="{{card.image}}">
@@ -15,3 +24,4 @@
 
       <button class="item" ng-click="logout()">Logout</button>
     </ion-pane>
+</ion-content>

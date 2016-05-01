@@ -2260,7 +2260,9 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   border: 0;
   vertical-align: baseline;
   font: inherit;
-  font-size: 100%; }
+  font-size: 100%; 
+  margin-bottom: 10px;
+}
 
 ol, ul {
   list-style: none; }
@@ -4646,15 +4648,12 @@ ion-tabs.tabs-color-active-dark .tab-item {
  * --------------------------------------------------
  */
 .item {
-  border-color: #ddd;
-  background-color: #fff;
   color: #444;
   position: relative;
   z-index: 2;
   display: block;
   margin: -1px;
   padding: 16px;
-  border-width: 1px;
   border-style: solid;
   font-size: 16px; }
   .item h2 {
@@ -5296,7 +5295,9 @@ a.item-content {
   padding-bottom: 1px;
   padding-left: 0;
   margin-bottom: 100px;
-  width: 70%}
+  width: 70%;
+  max-width: 40%;
+  min-width: 140px;}
 
 .list:last-child {
   margin-bottom: 0px; }
@@ -5662,21 +5663,30 @@ label, input, button, select, textarea {
 input, button, select, textarea {
   font-family: "Helvetica Neue", "Roboto", "Segoe UI", sans-serif; }
 
+element.style {
+    margin-top: 50px;
+}
+
 .item-input {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  padding: 6px 0 5px 16px; }
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 6px 0 5px 16px;
+    min-width: 300px;
+    max-width: 60%;
+    border-radius: 10px;
+}
+
   .item-input input {
     -webkit-border-radius: 0;
     border-radius: 0;
@@ -5826,12 +5836,13 @@ input, button, select, textarea {
 textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
   display: block;
   padding-top: 2px;
-  padding-left: 0;
+  padding-left: 10px;
   height: 34px;
   color: #111;
   vertical-align: middle;
   font-size: 14px;
-  line-height: 16px; }
+  line-height: 16px;
+  border-radius: 10px; }
 
 .platform-ios input[type="datetime-local"], .platform-ios input[type="date"], .platform-ios input[type="month"], .platform-ios input[type="time"], .platform-ios input[type="week"], .platform-android input[type="datetime-local"], .platform-android input[type="date"], .platform-android input[type="month"], .platform-android input[type="time"], .platform-android input[type="week"] {
   padding-top: 8px; }
