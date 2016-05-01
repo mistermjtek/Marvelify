@@ -1,16 +1,32 @@
 angular.module('onboard-controller', [])
 
-.controller('OnboardCtrl', function($scope, $ionicHistory, $rootScope, $firebaseArray, FirebaseAPI, $cordovaCamera) {
+.controller('OnboardCtrl', function($scope, $ionicHistory, $rootScope, $firebaseArray, $cordovaCamera) {
+
+	$scope.user = {
+		fullName: '',
+		gender: '',
+		age: 0,
+		image: null
+	}
 
 	$ionicHistory.clearHistory();
 
 	$scope.submitForm = function(user) {
+
+	var ref = new Firebase('https://marvelify.firebaseio.com/users/'+ $rootScope.userData.uid);
+	var sync = $firebaseArray(ref);
 		console.log(user);
-		FirebaseAPI.child("users").child($rootScope.userData.uid).set({
+		sync.$add({
                     fullName: user.fullName,
                     gender: user.gender,
-                    age: user.age
-                });
+                    age: user.age,
+                    image: user.image
+                }).then(function(ref) {
+  var id = ref.key();
+  console.log("added record with id " + id);
+  sync.$indexFor(id); // returns location in the array
+});
+  	// sync.$set({ email: user.email, provider: user.provider });
 	}
 
 	 $scope.upload = function() {
@@ -26,10 +42,7 @@ angular.module('onboard-controller', [])
             saveToPhotoAlbum: false
         };
         $cordovaCamera.getPicture(options).then(function(imageData) {
-        	alert(imageData);
-            // syncArray.$add({image: imageData}).then(function() {
-            //     alert("Image has been uploaded");
-            // });
+        	$scope.user.image = imageData;
         }, function(error) {
             console.error(error);
         });
