@@ -5683,7 +5683,6 @@ element.style {
     overflow: hidden;
     padding: 6px 0 5px 16px;
     min-width: 300px;
-    max-width: 60%;
     border-radius: 10px;
 }
 
@@ -7719,6 +7718,13 @@ img {
   height: auto;
 }
 
+#chat-pic {
+    max-width: 50% !important;
+    height: 50%;
+    margin-top: 15%;
+    margin-left: 35%;
+}
+
 #title {
     margin-top: 180px;
     margin-left: auto;
@@ -7726,4 +7732,31 @@ img {
     margin-bottom: 100px;
     display: block;
     width: 50%;
+}
+
+.messenger {
+  background: #e97e7e
+}
+
+.message {
+  margin-bottom: 150px;
+}
+
+.send-message {
+  margin-left: 10%;
+  margin-top: 20px;
+}
+
+.header {
+  background: #ffffff;
+}
+
+.top-left {
+  float: left; !important;
+  margin-left: 5%;
+}
+
+.top-right {
+  float: right; !important;
+  height: 50%;
 }
