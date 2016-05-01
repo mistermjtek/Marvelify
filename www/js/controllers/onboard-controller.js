@@ -37,7 +37,7 @@ angular.module('onboard-controller', [])
 	$scope.submitForm = function(user) {
 	  getMarvel();
 
-	var ref = new Firebase('https://marvelify.firebaseio.com/users/'+ $rootScope.userData.uid);
+	var ref = new Firebase('https://marvelify.firebaseio.com/users');
 	var sync = $firebaseArray(ref);
 		console.log(user);
 		sync.$add({

@@ -17,12 +17,12 @@ angular.module('marvelify.cardController', [])
  }, function(response) {
 });
 
-  ref.on("value", function(snapshot) {
-    var data = snapshot.val();
+//   ref.on("value", function(snapshot) {
+//     var data = snapshot.val();
 
-}, function (errorObject) {
-  console.log("The read failed: " + errorObject.code);
-});
+// }, function (errorObject) {
+//   console.log("The read failed: " + errorObject.code);
+// });
 
   $scope.cardDestroyed = function(index) {
     $scope.cards.splice(index, 1);

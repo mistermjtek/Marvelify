@@ -115,14 +115,11 @@ angular.module('marvelify', ['ionic',
       }]
         }
     })
-    // .state('tabs.facts', {
-    //   url: '/facts',
-    //   views: {
-    //     'home-tab': {
-    //       templateUrl: 'templates/facts.html'
-    //     }
-    //   }
-    // })
+    .state('chats', {
+      url: '/chats',
+          templateUrl: 'templates/chats.html',
+          controller: 'ChatsCtrl'
+    })
 
 
    $urlRouterProvider.otherwise('/login');
