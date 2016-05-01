@@ -4,8 +4,22 @@ angular.module('marvelify.cardController', [])
   var ref = FirebaseAPI;
   var cardTypes = [{image: 'lastcard.jpg'}];
 
+  $http.get('https://marvelify.firebaseio.com/users.json').then(function(response) {
+    var array = [];
+         console.log(response.data);
+    angular.forEach(response.data, function(element) {
+      angular.forEach(element, function(el) {
+        cardTypes.push({image: el.marvelImage});
+      })
+    // cardTypes.push({image: element[Object.keys(element)[0]].marvelImage});
+
+  });
+ }, function(response) {
+});
+
   ref.on("value", function(snapshot) {
-  console.log(snapshot.val());
+    var data = snapshot.val();
+
 }, function (errorObject) {
   console.log("The read failed: " + errorObject.code);
 });
