@@ -6,6 +6,7 @@
 // 'ionic.contrib.ui.tinderCards' is found in ionic.tdcards.js
 angular.module('marvelify', ['ionic', 
   'firebase',
+  'ngCordova',
   'ionic.contrib.ui.tinderCards', 
   'marvelify.cardController', 
   'auth-service', 
@@ -32,6 +33,7 @@ angular.module('marvelify', ['ionic',
         Auth.$onAuth(function (authData) {
             if (authData) {
                 console.log("Logged in as:", authData.uid);
+                $rootScope.userData = authData;
             } else {
                 console.log("Logged out");
                 $ionicLoading.hide();

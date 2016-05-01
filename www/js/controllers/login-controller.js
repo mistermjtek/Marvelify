@@ -1,6 +1,6 @@
 angular.module('login-controller', [])
 
-.controller('LoginCtrl', function($scope, Auth, $http, $state) {
+.controller('LoginCtrl', function($scope, Auth, $http, $state, $rootScope) {
 
   $scope.user = {
     username: '',
@@ -41,6 +41,7 @@ angular.module('login-controller', [])
   });
 }).then(function(authData) {
   console.log("Logged in as:", authData.uid);
+  $rootScope.userData = authData;
   $state.go('onboard');
 }).catch(function(error) {
   console.error("Error: ", error);
@@ -48,6 +49,12 @@ angular.module('login-controller', [])
   }
 
   $scope.signUpMode = function() {
+
+    $scope.user = {
+    username: '',
+    password: ''
+  }
+
     $scope.buttonText = ($scope.buttonText === 'Login') ? 'Sign Up' : 'Login';
     $scope.showConfirmPassword = ($scope.buttonText === 'Login') ? false : true;
     $scope.labelText = ($scope.buttonText === 'Login') ? 'No Account? Sign Up Here!' : 'Back to Login';
@@ -68,6 +75,7 @@ angular.module('login-controller', [])
   password: userData.password
 }).then(function(authData) {
   console.log("Logged in as:", authData.uid);
+  $rootScope.userData = authData;
   $state.go('home');
 }).catch(function(error) {
   console.error("Authentication failed:", error);
