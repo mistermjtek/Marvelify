@@ -3,23 +3,37 @@
     <img src="../img/profile/03.png" height="45" width="180" style="PADDING-LEFT: 20px; PADDING-TOP: 20px;"><br>
     <div align="center">
 	<img class="topMargin" src="../img/profile/00.png" height="25" width="300">
-	<a style="display:block;" ng-click="upload()"><img class="topMargin" src="../img/profile/02.png" height="270" width="270"></a>
 
-	          <!-- <div class="list list-inset"> -->
-            <label class="item item-input">
-              <input type="text" placeholder="Full Name" ng-model="user.fullName">
-            </label>
-            <br />
-            <label class="item item-input">
-              <input type="number" placeholder="Age" ng-model="user.age">
-            </label>
+	<a style="display:block; margin-bottom:60px" ng-click="upload()"><img class="topMargin" src="../img/profile/02.png" height="270" width="270"></a>
+    </div>
 
 
-          <!-- </div> -->
+    <div align="center">
 
-
-	<button class="button button-clear button-positive" ng-click="submitForm(user)">
-			<img src="../img/profile/10.png" height="50" width="50"></button>
+<div class="row">
+  <div class="col"><img src="../img/profile/11.png" height="25" width="80" align="right" style="
+    min-height: 30px; min-width: 70px;"></div>
+  <div class="col col-50" align="center"><input type="text" ng-model="user.username" size="30"></div>
+  <div class="col"></div>
+</div>
+<div class="row">
+  <div class="col"><img src="../img/profile/06.png" height="30" width="62" align="right"></div>
+  <div class="col col-50" align="center"><input type="number" ng-model="user.age"></div>
+  <div class="col"></div>
+</div>
+<div class="row">
+  <div class="col"><img src="../img/profile/04.png" height="30" width="111" align="right" style="
+    min-width: 100px; min-height: 25px;"></div>
+  <div class="col col-50"><ion-list align="left">
+	<ion-radio ng-model="user.gender" ng-value="'M'">Male</ion-radio>
+	<ion-radio ng-model="user.gender" ng-value="'F'">Female</ion-radio></div>
+  <div class="col"></div>
+</div>
+	
+    </div>
+    <div align="center">
+	<a style="display:block;" ng-click="submitForm(user)">
+	<img class="topMargin" src="../img/profile/10.png" height="50" width="50"></a>
     </div>
     </ion-content>
 </ion-view>

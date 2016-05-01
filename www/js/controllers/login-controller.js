@@ -8,7 +8,7 @@ angular.module('login-controller', [])
   }
 
   $scope.buttonText = 'Login';
-  $scope.labelText = 'No Account? Sign Up Here!'
+  $scope.labelText = 'No Account? Sign Up Here!';
 
   var signUp = function(user) {
     Auth.$createUser({
