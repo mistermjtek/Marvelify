@@ -5,15 +5,49 @@ td-cards {
 td-card {
   position: absolute;
   left: 50%;
-  margin-top: 80px;
   margin-bottom: 40px;
   margin-left: -150px;
   width: 300px;
   height: 300px;
-
+  top: 75%;
   border: 1px solid #999;
   box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
   border-radius: 6px;
+}
+
+.description {
+    position: absolute;
+    bottom: -25vh;
+    width:100%;
+}
+
+.description h1 {
+      color: #e17673;
+      font-weight:bold;
+}
+
+.chat-head-photo {
+  border-radius:30px; max-width:300px; transition: 6s all ease; max-height:300px;
+}
+
+#cf {
+    position: relative;
+    height: 300px;
+    width: 300px;
+    margin: 0 auto;
+}
+
+#cf img {
+  position:absolute;
+  left:0;
+  -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+}
+
+#cf img.top.reveal {
+  opacity:0;
 }
 /*
 td-card.card-0 {

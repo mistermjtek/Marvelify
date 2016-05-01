@@ -1,16 +1,32 @@
 <ion-view view-title="Marvelify">
-        <ion-content has-bouncing="true" class="has-footer" 
+        <ion-content has-bouncing="true"
               delegate-handle="userMessageScroll">
-        <div class="row header" style="height: 10vh;">
+<!--         <div class="row header" style="height: 10vh;">
           <div class="col col-75">
-            <button class="top-left title button icon-left ion-chevron-left button-clear button-assertive" style="width: 200px; margin: 5px;"><text class="top-left">MICHAEL WU</text></button>
+            <button class="top-left title button icon-left ion-chevron-left button-clear button-assertive">{{displayName}}</button>
           </div>
           <div class="col">
-            <img class="top-right title" src="img/chat_page_icon.png" 
-					style=" margin: 5px; height: 40px; ">
+            <img class="top-right title" src="img/message_page_icon.png">
           </div>
         </div>
           
+
+          
+          <div class="row messenger">  
+              <div class="col col-80 list list-inset message">
+                <label class="item item-input">
+                  <input type="text" placeholder="Message" ng-model="user.message">
+                </label>
+            </div>
+            
+            <div class="col col-20 send-message">
+              <img src="img/message_page_0013.png">
+            </div>
+          </div>
+                <ion-list > 
+
+            <button class="top-left title button icon-left ion-chevron-left button-clear button-assertive" style="width: 200px; margin: 5px;"><text class="top-left">MICHAEL WU</text></button>
+
           <div class="row responsive-sm" align="center">
               <img id="chat-pic" src="img/chat_page_0002.png" style="margin-top: 5vh;">
           </div>       
@@ -71,37 +87,55 @@
                     </button>
                   </div>
               </ion-footer-bar>
-          </form>
-<!-- =======
-                <ion-list ng-show="roomName">
+          </form> -->
+          <div class="col col-10"><a ng-click="goHome()">
+      <img src="img/chat/00.png" align="left" style="min-width: 30px; margin: 3vw;"></a></div> 
+          <div id="cf">
+  <img class="bottom chat-head-photo" src="http://www.jordanscentra.ie/elearning/main/default_course_document/images/Me(1).jpg" />
+  <img class="top chat-head-photo" src="http://i.annihil.us/u/prod/marvel/i/mg/6/f0/53176ffc42f58.jpg" ng-class="{'reveal': reveal}"/>
+</div>
+                <!-- <ion-list> -->
+
+                <!-- <ion-list > -->
             <ion-item class="item item-input-inset">
                 <label class="item-input-wrapper">
-                    <input type="text" ng-model="IM.textMessage" placeholder="Type in your message...">
+                    <input type="text" ng-model="message" placeholder="Type in your message...">
                 </label>
-                <button ng-click="sendMessage(IM.textMessage)" class="button button-small button-balanced">
+                <label class="item-input-wrapper">
+                    <input type="text" ng-model="name" placeholder="Name">
+                </label>
+                <button ng-click="addMessage($event)" class="button button-small button-balanced">
                     Send
                 </button>
             </ion-item>
-            <ion-item ng-hide="chats" class="textCenter">
-                <i class="icon ion-loading-c"></i> Loading Chats
+            <ion-item ng-hide="messages" class="textCenter">
+                <i class="icon ion-loading-c"></i> Loading messages
             </ion-item>
-            <ion-item ng-if="chats.length == 0" class="textCenter">
+            <ion-item ng-if="messages.length == 0" class="textCenter">
                 <h4>No messages in this room. Send message to start.</h4>
             </ion-item>
-            <ion-item class="" ng-repeat="chat in chats | orderBy:'createdAt':true" type="item-text-wrap">
-                <h4>{{chat.from}} :</h4>
-                <span am-time-ago="chat.createdAt" class="item-note">
+            <ion-item class="" ng-repeat="message in messages | orderBy:'createdAt':true" type="item-text-wrap">
+                <h4>{{message.from}} :</h4>
+                <span am-time-ago="message.createdAt" class="item-note">
                 </span>
-                <p>{{chat.message}}</p>
-                <ion-option-button class="button-assertive" ng-click="remove(chat)">
+                <p>{{message.body}}</p>
+                <ion-option-button class="button-assertive" ng-click="remove(message)">
                     Delete
                 </ion-option-button>
             </ion-item>
-        </ion-list>
-        <ion-list ng-hide="roomName">
+        <!-- </ion-list> -->
+<!--     <ion-list ng-hide="roomName">
             <ion-item class="textCenter">
+
+                <h4>Please select a room to message first.</h4>
+            </ion-item>
+
                 <h4>Please select a room to chat first.</h4>
             </ion-item>
-        </ion-list>
->>>>>>> 8d974a4162921b2a03495b5d0f05253a425190ac -->
+<<<<<<< HEAD
+        </ion-list> -->
+
+
+        </ion-content>
 </ion-view>
+

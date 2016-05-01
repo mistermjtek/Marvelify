@@ -2,7 +2,7 @@ angular.module('marvelify.homeController', [])
 
 .controller('HomeCtrl', function($scope, TDCardDelegate, FirebaseAPI, Auth, $state, $http, $firebaseArray, $rootScope, $ionicActionSheet) {
     var ref = FirebaseAPI;
-    $scope.cards = [{ image: '' }];
+    $scope.cards = [{ image: "http://i.annihil.us/u/prod/marvel/i/mg/6/f0/53176ffc42f58.jpg" }];
 
     $http.get('https://marvelify.firebaseio.com/users.json').then(function(response) {
         var array = [];
@@ -63,7 +63,6 @@ angular.module('marvelify.homeController', [])
 
     // $scope.cards = [];
     // for(var i = 0; i < 3; i++) $scope.addCard();
-
     $scope.cardSwipedLeft = function(index) {
 
         console.log('LEFT SWIPE');
@@ -84,6 +83,8 @@ angular.module('marvelify.homeController', [])
         });
         console.log('RIGHT SWIPE');
         // $scope.addCard();
+
+
     };
 
 });
