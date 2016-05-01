@@ -1,31 +1,77 @@
 <ion-view view-title="Marvelify">
-        <ion-content>
-        <div class="row header">
+        <ion-content has-bouncing="true" class="has-footer" 
+              delegate-handle="userMessageScroll">
+        <div class="row header" style="height: 10vh;">
           <div class="col col-75">
-            <button class="top-left title button icon-left ion-chevron-left button-clear button-assertive"><text class="top-left">MICHAEL WU</text></button>
+            <button class="top-left title button icon-left ion-chevron-left button-clear button-assertive" style="width: 200px; margin: 5px;"><text class="top-left">MICHAEL WU</text></button>
           </div>
           <div class="col">
-            <img class="top-right title" src="img/chat_page_icon.png">
+            <img class="top-right title" src="img/chat_page_icon.png" 
+					style=" margin: 5px; height: 40px; ">
           </div>
         </div>
           
-          <div class="row responsive-sm">
-          <div class="col">
-              <img id="chat-pic" src="img/chat_page_0002.png">
-           </div>
-          </div>
-          
-          <div class="row messenger">  
-              <div class="col col-80 list list-inset message">
-                <label class="item item-input">
-                  <input type="text" placeholder="Message" ng-model="user.message">
-                </label>
-            </div>
-            
-            <div class="col col-20 send-message">
-              <img src="img/chat_page_0013.png">
-            </div>
-          </div>
+          <div class="row responsive-sm" align="center">
+              <img id="chat-pic" src="img/chat_page_0002.png" style="margin-top: 5vh;">
+          </div>       
+              <div ng-repeat="message in messages" class="message-wrapper"
+                  on-hold="onMessageHold($event, $index, message)">
+      
+                  <div ng-if="user._id !== message.userId">
+                      
+                    <img ng-click="viewProfile(message)" class="profile-pic left" 
+                          ng-src="{{toUser.pic}}" onerror="onProfilePicError(this)" />
+      
+                      <div class="chat-bubble left">
+      
+                          <div class="message" ng-bind-html="message.text | nl2br" autolinker>
+                          </div>
+      
+                          <div class="message-detail">
+                              <span ng-click="viewProfile(message)" 
+                                  class="bold">{{toUser.username}}</span>,
+                              <span am-time-ago="message.date"></span>
+                          </div>
+      
+                      </div>
+                  </div>
+      
+                  <div ng-if="user._id === message.userId">
+                    
+                       <img ng-click="viewProfile(message)" class="profile-pic right" 
+                          ng-src="{{user.pic}}" onerror="onProfilePicError(this)" />
+                    
+                      <div class="chat-bubble right">
+      
+                          <div class="message" ng-bind-html="message.text | nl2br" autolinker>
+                          </div>
+      
+                          <div class="message-detail">
+                              <span ng-click="viewProfile(message)" 
+                                  class="bold">{{user.username}}</span>, 
+                              <span am-time-ago="message.date"></span>
+                          </div>
+      
+                      </div>
+                    
+                  </div>
+      
+                  <div class="cf"></div>
+      
+              </div>
+          </ion-content>
+
+              <ion-footer-bar class="bar-stable item-input-inset message-footer" keyboard-attach>
+                  <label class="item-input-wrapper">
+                      <textarea ng-model="input.message" value="" placeholder="Send {{toUser.username}} a message..." required minlength="1" maxlength="1500" msd-elastic></textarea>
+                  </label>
+                  <div class="footer-btn-wrap">
+                    <button class="button button-icon icon ion-android-send footer-btn" type="submit"
+                        ng-disabled="!input.message || input.message === ''">
+                    </button>
+                  </div>
+              </ion-footer-bar>
+          </form>
 <!-- =======
                 <ion-list ng-show="roomName">
             <ion-item class="item item-input-inset">
@@ -58,5 +104,4 @@
             </ion-item>
         </ion-list>
 >>>>>>> 8d974a4162921b2a03495b5d0f05253a425190ac -->
-        </ion-content>
 </ion-view>
