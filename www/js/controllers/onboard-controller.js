@@ -1,6 +1,6 @@
 angular.module('onboard-controller', [])
 
-.controller('OnboardCtrl', function($scope, $ionicHistory, $rootScope, $firebaseArray, $cordovaCamera, $http, $state) {
+.controller('OnboardCtrl', function($scope, $ionicHistory, $rootScope, $firebaseArray, $cordovaCamera, $http, $state, $ionicLoading) {
 
 	$scope.user = {
 		fullName: '',
@@ -8,7 +8,8 @@ angular.module('onboard-controller', [])
 		age: 0,
 		description: '',
 		image: null,
-		marvelImage: ''
+		marvelImage: '',
+		userId: $rootScope.userData.uid
 	}
 
 	$ionicHistory.clearHistory();
@@ -35,6 +36,7 @@ angular.module('onboard-controller', [])
   }
 
 	$scope.submitForm = function(user) {
+		$ionicLoading.show();
 	  getMarvel();
 
 	var ref = new Firebase('https://marvelify.firebaseio.com/users');
@@ -46,12 +48,13 @@ angular.module('onboard-controller', [])
                     age: user.age,
                     description: user.description,
                     image: user.image,
-                    marvelImage: user.marvelImage
+                    marvelImage: user.marvelImage,
+                    userId: user.userId
                 }).then(function(ref) {
   var id = ref.key();
   console.log("added record with id " + id);
   sync.$indexFor(id); // returns location in the array
-
+  $ionicLoading.hide();
   $state.go('home');
 });
   	// sync.$set({ email: user.email, provider: user.provider });

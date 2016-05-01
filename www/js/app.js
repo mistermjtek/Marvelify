@@ -8,11 +8,12 @@ angular.module('marvelify', ['ionic',
   'firebase',
   'ngCordova',
   'ionic.contrib.ui.tinderCards', 
-  'marvelify.cardController', 
+  'marvelify.homeController', 
   'auth-service', 
   'login-controller',
   'onboard-controller',
-  'chats-controller'])
+  'chats-controller',
+  'app-directives'])
 
 .run(function ($ionicPlatform, $rootScope, $location, Auth, $ionicLoading) {
     $ionicPlatform.ready(function () {
@@ -59,7 +60,7 @@ angular.module('marvelify', ['ionic',
             }
         });
 
-        $rootScope.marvelChars = [1009610, 1009351, 1009220, 1009368, 1009189, 1009664, 1010809, 1009524, 1009268, 1009562]
+        $rootScope.marvelChars = [1009610, 1009351, 1009220, 1009368, 1009189, 1009664, 1009338, 1009524, 1009268, 1009562];
     });
 })
 
@@ -103,7 +104,7 @@ angular.module('marvelify', ['ionic',
     .state('home', {
       url: '/home',
       templateUrl: 'templates/home.html',
-      controller: 'CardsCtrl',
+      controller: 'HomeCtrl',
       resolve: {
             // controller will not be loaded until $requireAuth resolves
             // Auth refers to our $firebaseAuth wrapper in the example above
@@ -120,6 +121,13 @@ angular.module('marvelify', ['ionic',
           templateUrl: 'templates/chats.html',
           controller: 'ChatsCtrl'
     })
+
+    .state('chat', {
+      url: '/chat',
+          templateUrl: 'templates/chat.html',
+          controller: 'ChatCtrl'
+    })
+
 
 
    $urlRouterProvider.otherwise('/login');
