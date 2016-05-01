@@ -8,7 +8,12 @@ angular.module('marvelify.homeController', [])
         var array = [];
         console.log(response.data);
         angular.forEach(response.data, function(element) {
-            $scope.cards.push({ image: element.marvelImage, userId: element.userId });
+            $scope.cards.push({ image: element.marvelImage, 
+              userId: element.userId, 
+              fullName: element.fullName, 
+              gender: element.gender, 
+              age: element.age 
+            });
             // cardTypes.push({image: element[Object.keys(element)[0]].marvelImage});
         });
         console.log($scope.cards);
