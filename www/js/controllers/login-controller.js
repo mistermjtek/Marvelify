@@ -10,24 +10,6 @@ angular.module('login-controller', [])
   $scope.buttonText = 'Login';
   $scope.labelText = 'No Account? Sign Up Here!'
 
-  var marvelApiKey = '8840657df7518a8f93eb0ece030f5091';
-
-  var getMarvel = function() {
-    // $http.get('http://gateway.marvel.com/v1/public/characters?apikey=8840657df7518a8f93eb0ece030f5091');
-    $http({
-      method: 'GET',
-      url: 'http://gateway.marvel.com/v1/public/characters?',
-      params: {apikey: marvelApiKey}
-    }).then(function successCallback(response) {
-      console.log(response);
-    }, function errorCallback(response) {
-    // called asynchronously if an error occurs
-    // or server returns response with an error status.
-    });
-  }
-
-  // getMarvel();
-
   var signUp = function(user) {
     Auth.$createUser({
   email: user.username,
