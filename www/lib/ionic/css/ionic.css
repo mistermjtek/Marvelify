@@ -2315,7 +2315,8 @@ html {
  */
 body {
   margin: 0;
-  line-height: 1; }
+  line-height: 1; 
+}
 
 /**
  * Remove default outlines.
@@ -5287,11 +5288,15 @@ a.item-content {
  * --------------------------------------------------
  */
 .list {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
   position: relative;
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 0;
-  margin-bottom: 20px; }
+  margin-bottom: 100px;
+  width: 70%}
 
 .list:last-child {
   margin-bottom: 0px; }
@@ -5320,7 +5325,7 @@ a.item-content {
  */
 .card, .list-inset {
   overflow: hidden;
-  margin: 20px 10px;
+  margin-top: 40px;
   border-radius: 2px;
   background-color: #fff; }
 
@@ -6551,7 +6556,11 @@ progress {
   text-overflow: ellipsis;
   font-size: 16px;
   line-height: 42px;
-  cursor: pointer; }
+  cursor: pointer; 
+  margin-left: auto;
+  margin-right: auto;
+  display: block; 
+  width: 30%}
   .button:hover {
     color: #444;
     text-decoration: none; }
@@ -7688,3 +7697,21 @@ a.button {
   opacity: 0;
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
+
+
+.scroll-content {
+    background: url("../../../img/background.png");
+}
+
+img {
+  max-width: 80%;
+  height: auto;
+}
+
+#title {
+  margin-top: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 100px;
+  display: block;
+}
