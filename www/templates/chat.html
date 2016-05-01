@@ -1,5 +1,30 @@
 <ion-view view-title="Marvelify">
         <ion-content>
-        This is chat page
+        <div class="row header">
+          <div class="col col-75">
+            <button class="top-left title button icon-left ion-chevron-left button-clear button-assertive"><text class="top-left">MICHAEL WU</text></button>
+          </div>
+          <div class="col">
+            <img class="top-right title" src="img/chat_page_icon.png">
+          </div>
+        </div>
+          
+          <div class="row responsive-sm">
+          <div class="col">
+              <img id="chat-pic" src="img/chat_page_0002.png">
+           </div>
+          </div>
+          
+          <div class="row messenger">  
+              <div class="col col-80 list list-inset message">
+                <label class="item item-input">
+                  <input type="text" placeholder="Message" ng-model="user.message">
+                </label>
+            </div>
+            
+            <div class="col col-20 send-message">
+              <img src="img/chat_page_0013.png">
+            </div>
+          </div>
         </ion-content>
-        </ion-view>
+</ion-view>
