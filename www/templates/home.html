@@ -1,19 +1,22 @@
 <ion-pane>
-<ion-view view-title="User Onboarding">
+  <ion-view view-title="User Onboarding">
     <ion-content>
-<div class="row">
-  <div class="col"><a ng-click="openSettings()" ><img src="img/home/01.png" align="left"></a></div>
-  <div class="col col-50"><img src="img/home/00.png" align="center"></div>
-  <div class="col"><a ui-sref="chats"><img src="img/home/02.png" align="right"></a></div>
-</div>
-<br>
-<div class="row">
-  <div class="col"><img src="img/home/03.png" align="left"></div>
-  <div class="col"><img src="img/home/04.png" align="right"></div>
-</div>
-
+      <div class="row">
+        <div class="col">
+          <a ng-click="openSettings()"><img src="img/home/01.png" align="left"></a>
+        </div>
+        <div class="col col-50"><img src="img/home/00.png" align="center"></div>
+        <div class="col">
+          <a ui-sref="chats"><img src="img/home/02.png" align="right"></a>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col"><img src="img/home/03.png" align="left"></div>
+        <div class="col"><img src="img/home/04.png" align="right"></div>
+      </div>
       <td-cards>
-        <td-card ng-repeat="card in cards" on-destroy="cardDestroyed($index)" on-swipe-left="cardSwipedLeft($index)" on-swipe-right="cardSwipedRight(card)" on-partial-swipe="cardPartialSwipe(amt)" class="card-{{$index}}" >
+        <td-card ng-repeat="card in cards" on-destroy="cardDestroyed($index)" on-swipe-left="cardSwipedLeft($index)" on-swipe-right="cardSwipedRight(card)" on-partial-swipe="cardPartialSwipe(amt)" class="card-{{$index}}">
           <div class="image">
             <div class="no-text">NOPE</div>
             <img ng-src="{{card.image}}">
@@ -21,5 +24,5 @@
           </div>
         </td-card>
       </td-cards>
-    </ion-pane>
+</ion-pane>
 </ion-content>

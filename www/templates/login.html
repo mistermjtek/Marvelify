@@ -26,6 +26,31 @@
 </div>
 </div>
 <!--           <div class="padding">
+=======
+<ion-view view-title="Marvelify">
+  <ion-content>
+    <img id="title" src="img/login_page_0000_marvelify.png" alt="Marvelify">
+    <div class="list list-inset">
+      <label class="item item-input">
+        <input type="email" placeholder="Username" ng-model="user.username">
+      </label>
+      <label class="item item-input">
+        <input type="password" placeholder="Password" ng-model="user.password">
+      </label>
+      <label class="item item-input" ng-show="showConfirmPassword">
+        <input type="password" placeholder="Confirm Password" ng-model="user.confirmPassword">
+      </label>
+    </div>
+    <button class="item ng-binding button button-assertive" ng-click="submit(user)">{{buttonText}}</button>
+    <br>
+    <a ng-class="{'ion-chevron-left': buttonText !== 'Login'}"class="item button button-outline icon-right ion-chevron-right button-assertive" ng-click="signUpMode()">{{labelText}}</a>
+    <!--           <div ng-hide="authData" class="card" ng-click="login()">
+          <button class="item">
+  Log In with Facebook
+  </button> -->
+    </div>
+    <!--           <div class="padding">
+>>>>>>> 502d6b71b3f8570c50403952920ee6de10b529f7
             <button class="button button-block button-positive" ng-click="signIn(user)">
               Sign-In
             </button>
@@ -33,5 +58,5 @@
               <a href="#/forgot-password">Forgot password</a>
             </p>
           </div> -->
-        </ion-content>
-      </ion-view>
+  </ion-content>
+</ion-view>

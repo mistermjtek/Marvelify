@@ -8,41 +8,42 @@ angular.module('login-controller', [])
   }
 
   $scope.buttonText = 'Login';
-  $scope.labelText = 'No Account? Sign Up Here!';
+  $scope.labelText = 'Register';
 
   var signUp = function(user) {
     $ionicLoading.show();
     Auth.$createUser({
-  email: user.username,
-  password: user.password
-}).then(function(userData) {
-  console.log("User " + userData.uid + " created successfully!");
+      email: user.username,
+      password: user.password
+    }).then(function(userData) {
+    console.log("User " + userData.uid + " created successfully!");
 
-  return Auth.$authWithPassword({
-    email: user.username,
-    password: user.password
-  });
-}).then(function(authData) {
-  console.log("Logged in as:", authData.uid);
-  $rootScope.userData = authData;
-  $state.go('onboard');
-}).catch(function(error) {
-  console.error("Error: ", error);
-}).finally(function() {
-  ionicLoading.hide();
-});
+    return Auth.$authWithPassword({
+      email: user.username,
+      password: user.password
+    });
+
+    }).then(function(authData) {
+      console.log("Logged in as:", authData.uid);
+      $rootScope.userData = authData;
+      $state.go('onboard');
+    }).catch(function(error) {
+      console.error("Error: ", error);
+    }).finally(function() {
+      $ionicLoading.hide();
+    });
   }
 
   $scope.signUpMode = function() {
 
     $scope.user = {
-    username: '',
-    password: ''
-  }
+      username: '',
+      password: ''
+    }
 
     $scope.buttonText = ($scope.buttonText === 'Login') ? 'Sign Up' : 'Login';
     $scope.showConfirmPassword = ($scope.buttonText === 'Login') ? false : true;
-    $scope.labelText = ($scope.buttonText === 'Login') ? 'No Account? Sign Up Here!' : 'Back to Login';
+    $scope.labelText = ($scope.buttonText === 'Login') ? 'Register!' : 'Back to Login';
   }
 
   $scope.submit = function(user) {
@@ -56,17 +57,17 @@ angular.module('login-controller', [])
   var login = function(userData) {
     $ionicLoading.show();
     Auth.$authWithPassword({
-  email: userData.username,
-  password: userData.password
-}).then(function(authData) {
-  console.log("Logged in as:", authData.uid);
-  $rootScope.userData = authData;
-  $state.go('home');
-}).catch(function(error) {
-  console.error("Authentication failed:", error);
-}).finally(function() {
-  $ionicLoading.hide();
-});
+      email: userData.username,
+      password: userData.password
+    }).then(function(authData) {
+      console.log("Logged in as:", authData.uid);
+      $rootScope.userData = authData;
+      $state.go('home');
+    }).catch(function(error) {
+      console.error("Authentication failed:", error);
+    }).finally(function() {
+      $ionicLoading.hide();
+    });
     // Auth.$authWithOAuthRedirect("facebook").then(function(authData) {
     //   console.log(authData);
     //   $rootScope.userData = authData;
